@@ -4,20 +4,27 @@ pipeline {
     stages {
     
         stage ('Compile Stage') {
-            sh "cp .env.example .env"
-            sh "composer install --prefer-dist"
+            steps {
+              sh "cp .env.example .env"
+              sh "composer install --prefer-dist"
+            }        
+
             
         }
 
         stage ('Testing Stage') {
-            // Run any testing suites
-            sh "./vendor/bin/phpunit"
+            steps {        
+              // Run any testing suites
+              sh "./vendor/bin/phpunit"
+            }
         }
 
         stage ('Deployment Stage') {
-            // If we had ansible installed on the server, setup to run an ansible playbook
-            // sh "ansible-playbook -i ./ansible/hosts ./ansible/deploy.yml"
-            sh "echo 'WE ARE DEPLOYING'"
+            steps { 
+              // If we had ansible installed on the server, setup to run an ansible playbook
+              // sh "ansible-playbook -i ./ansible/hosts ./ansible/deploy.yml"
+              sh "echo 'WE ARE DEPLOYING'"
+            }
         }
     }
     
