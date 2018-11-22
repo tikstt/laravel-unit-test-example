@@ -2,6 +2,10 @@ pipeline {
     agent any
 
     stages {
+        stage('git clone') {       
+          git clone "https://github.com/tikstt/laravel-unit-test-example.git"
+        }    
+    
         stage ('Compile Stage') {
             sh "composer install"
             sh "cp .env.example .env"
@@ -19,4 +23,10 @@ pipeline {
             sh "echo 'WE ARE DEPLOYING'"
         }
     }
+    
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
+        }
+    }    
 }
