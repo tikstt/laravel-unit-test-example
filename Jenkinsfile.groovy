@@ -6,7 +6,7 @@ pipeline {
         stage ('Compile Stage') {
             steps {
               sh "cp .env.example .env"
-              sh "php composer.phar install --prefer-dist"
+              sh "composer install --prefer-dist"
             }          
         }
 
