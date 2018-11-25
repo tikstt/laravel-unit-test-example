@@ -10,13 +10,7 @@ pipeline {
             }
         }
 
-        stage ('Sonar Stage') {
-            steps {
-              withSonarQubeEnv('Sonar'){
-                sh "sonar-scanner"
-              }              
-            }
-        }
+
 
         stage ('Testing Stage') {
             steps {
