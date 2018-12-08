@@ -27,7 +27,7 @@ pipeline {
         stage('SonarQube analysis') {
           steps {
               withSonarQubeEnv('sonarcloud.io') {
-              sh "/home/ansiblegcp/sonar-scanner/bin/sonar-scanner -Dsonar.php.coverage.reportPaths=./reports/coverage.xml -Dsonar.php.tests.reportPath=./reports/unitreport.xml  -Dsonar.projectKey=tikstt_laravel-unit-test-example -Dsonar.organization=tikstt-github -Dsonar.sources=./app -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=530f6898d4e40eabbcc286d15dd4bb216364dec0"
+              sh "/home/ansiblegcp/sonar-scanner/bin/sonar-scanner -Dsonar.php.coverage.reportPaths=./reports/coverage.xml -Dsonar.php.tests.reportPath=./reports/unitreport.xml  -Dsonar.projectKey=tikstt_laravel-unit-test-example -Dsonar.organization=tikstt-github -Dsonar.sources=./app -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1c2905b8e9ea7825584b3a31280de1ed1903bef3"
               }
               /*
             withSonarQubeEnv('jenkins-sonarqube') {
